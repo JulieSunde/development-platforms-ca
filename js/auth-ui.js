@@ -24,4 +24,11 @@ async function updateNav() {
 
 updateNav();
 
-logoutLink?.addEventListener("click", logout);
+supabase.auth.onAuthStateChange((event, session) => {
+  updateNav();
+});
+
+logoutLink?.addEventListener("click", async (e) => {
+  e.preventDefault();
+  await logout();
+});

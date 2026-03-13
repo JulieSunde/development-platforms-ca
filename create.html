@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Welcome to the home page of No Wheat, No Worries. This is a blog page with gluten-free recipes">
+    <title>News | Create article </title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/supabase.js" ></script>
+    <script type="module" src="js/auth-ui.js" ></script>
+    <script type="module" src="js/create-articles.js" ></script>
+</head>
+<body>
+    <header>
+     <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="News Logo">
+            </a>
+        </div>
+  <nav>
+  <ul class="nav-links">
+
+     <li id="homeLink">
+      <a href="index.html" class="active">Home</a>
+    </li>
+
+    <li id="createLink">
+      <a href="create.html">Create article</a>
+    </li>
+
+    <li id="loginLink">
+      <a href="login.html">Log in</a>
+    </li>
+
+    <li id="registerLink">
+      <a href="register.html">Register</a>
+    </li>
+
+    <li id="logoutLink">
+      <a href="">Log out</a>
+    </li>
+
+  </ul>
+</nav>
+</header><main>
+
+<h2>Create Article</h2>
+
+<form id="postForm">
+
+<input name="title" placeholder="Post title" required>
+
+<input name="category" placeholder="Category">
+
+<textarea name="content" placeholder="Write your post..." required></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+<div id="postsContainer"></div>
+
+</main>
+ <footer>
+        <p>&copy; 2026 News. All rights reserved.</p>
+    </footer>
+</body>
+</html>
