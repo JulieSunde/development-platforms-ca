@@ -31,9 +31,8 @@ registerForm.addEventListener("submit", async function (e) {
     }
 
   } catch (error) {
-
-    message.textContent = "Something went wrong.";
-
+    console.log(error)
+    message.textContent = "Something went wrong. Please try again";
   }
 
 });
