@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.js"
 
+
 const container = document.getElementById("articlesContainer")
 
 async function loadArticles() {
