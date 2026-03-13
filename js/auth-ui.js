@@ -7,9 +7,11 @@ const createLink = document.getElementById("createLink")
 
 async function checkAuth() {
 
-  const { data } = await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
-  if (data.user) {
+  if (user) {
 
     loginLink.style.display = "none"
     registerLink.style.display = "none"
@@ -22,9 +24,12 @@ async function checkAuth() {
   }
 
 }
+
 checkAuth()
 
 logoutLink?.addEventListener("click", async () => {
+
   await supabase.auth.signOut()
   window.location.href = "index.html"
+
 })
