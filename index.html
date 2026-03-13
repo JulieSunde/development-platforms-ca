@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/supabase.js" type="module"></script>
     <script src="js/articles.js" type="module"></script>
+    <script  src="js/auth-ui.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -18,12 +19,30 @@
             </a>
         </div>
   <nav>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="create.html">Create article</a></li>
-        <li><a href="login.html">Log in</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="logout.html">Log out</a></li>
-  </nav>
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html" class="active">Home</a>
+    </li>
+
+    <li id="createLink">
+      <a href="create.html">Create article</a>
+    </li>
+
+    <li id="loginLink">
+      <a href="login.html">Log in</a>
+    </li>
+
+    <li id="registerLink">
+      <a href="register.html">Register</a>
+    </li>
+
+    <li id="logoutLink">
+      <a href="#">Log out</a>
+    </li>
+
+  </ul>
+</nav>
 </header>
     <main>
         <section class="hero">
