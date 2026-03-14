@@ -28,11 +28,13 @@ registerForm.addEventListener("submit", async function (e) {
 
     if (data.user) {
       message.textContent = "Registration successful! Check your email to confirm your account.";
+      registerForm.reset();
     }
 
   } catch (error) {
-    console.log(error)
-    message.textContent = "Something went wrong. Please try again";
+    console.log(error);
+    message.textContent = "Something went wrong. Please try again.";
+    button.disabled = false;
   }
 
 });

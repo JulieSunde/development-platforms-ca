@@ -1,13 +1,14 @@
 import { supabase } from "./supabase.js";
 
-const loginForm = document.querySelector("form");
+const loginForm = document.querySelector("#loginForm");
+const message = document.querySelector("#message");
 
 loginForm.addEventListener("submit", async function (e) {
+
   e.preventDefault();
 
-  const form = e.target;
-  const email = form.email.value.trim();
-  const password = form.password.value;
+  const email = loginForm.email.value.trim();
+  const password = loginForm.password.value;
 
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -15,13 +16,20 @@ loginForm.addEventListener("submit", async function (e) {
       password,
     });
 
-    if (data.user) {
-      console.log("user", data.user);
-      console.log("session", data.session);
-      loaction.href = "/index.html"
+    if (error) {
+      message.textContent = error.message;
+      return;
     }
+
+    if (data.user) {
+      message.textContent = "Login successful!";
+      window.location.href = "index.html";
+    }
+
   } catch (error) {
-    console.log(error)
-    message.textContent = "Something went wrong. Please try again";
+    console.log(error);
+    message.textContent = "Something went wrong. Please try again.";
+
   }
+
 });
