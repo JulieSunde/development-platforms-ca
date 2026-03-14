@@ -1,6 +1,6 @@
 import { supabase } from "./supabase.js"
 
-
+const { data: { user } } = await supabase.auth.getUser()
 const container = document.getElementById("articlesContainer")
 
 async function loadArticles() {
@@ -24,8 +24,10 @@ articleCard.classList.add("article")
 
 articleCard.innerHTML = `
 <h3>${article.title}</h3>
-<p>${article.body}</p>
-<small>${article.category} • ${new Date(article.created_at).toLocaleDateString()}</small>
+<h4>${article.category}</h4>
+<p>${article.content}</p>
+<p class="author">Posted by: ${article.user_id.slice(0,8)}</p>
+<small>${new Date(article.created_at).toLocaleDateString()}</small>
 `
 
 container.appendChild(articleCard)

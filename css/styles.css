@@ -87,6 +87,11 @@ h2 {
   color: #777;
 }
 
+.author {
+  font-size: 0.85rem;
+  color: #666;
+}
+
 form {
   display: flex;
   flex-direction: column;
