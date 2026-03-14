@@ -7,6 +7,7 @@ postForm.addEventListener("submit", async function (e) {
   e.preventDefault()
 
   const title = postForm.title.value.trim()
+  const category = postForm.category.value.trim()
   const content = postForm.content.value.trim()
 
   try {
@@ -19,7 +20,12 @@ postForm.addEventListener("submit", async function (e) {
 
     const { error } = await supabase
       .from("articles")
-      .insert([{ title, content, user_id: user.id }]) // include user_id
+      .insert([{
+        title,
+        category,
+        content,
+        user_id: user.id
+      }])
 
     if (error) {
       message.textContent = error.message

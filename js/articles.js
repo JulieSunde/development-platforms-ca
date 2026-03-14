@@ -24,7 +24,7 @@ articleCard.classList.add("article")
 
 articleCard.innerHTML = `
 <h3>${article.title}</h3>
-<h4>${article.category}</h4>
+<h4>${article.category ?? "General"}</h4>
 <p>${article.content}</p>
 <p class="author">Posted by: ${article.user_id.slice(0,8)}</p>
 <small>${new Date(article.created_at).toLocaleDateString()}</small>
