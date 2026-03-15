@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js"
+import { supabase } from "./supabase.js";
 
 const postForm = document.querySelector("#postForm")
 const message = document.querySelector("#message")
