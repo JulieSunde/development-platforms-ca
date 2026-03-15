@@ -16,6 +16,43 @@ cd development-platforms-ca
 
 3. Open the project in a code editor (I used VS Code).
 
+4. Configure Supabase:
+
+Create a new Supabase project at supabase.com
+
+Copy your project URL and anon key.
+
+In js/supabase.js, replace the placeholders:
+
+const supabaseUrl = "YOUR_SUPABASE_URL";
+const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+export const supabase = createClient(supabaseUrl, supabaseKey);
+
+Run the project locally with a development server such as VS Code or Live Server.
+
+- Supabase Table (articles) and Policies
+
+    - id (uuid, primary key)
+
+    - title (text, required)
+
+    - category (text, optional)
+
+    - content (text, required)
+
+    - user_id (uuid, references auth.users)
+
+    - created_at (timestamp, default now())
+
+- Row-Level Security (RLS) Policies implemented:
+
+    - Anyone can read articles, public - All users can view articles
+    - Users can create articles, authenticated - Only logged-in users can insert articles
+	- Users can delete their own articles, authenticated - Users can delete only articles they created
+    - Users can update their own articles, authenticated - Users can edit only their own articles
+
+These policies ensure only the author of a post can modify it, while everyone can read articles.
+
 Make sure the Supabase configuration in `supabase.js` contains your own project URL and API key.
 
 Example:
